@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BpkCode } from 'bpk-component-code';
 import BpkButton from 'bpk-component-button';
 import BpkText from 'bpk-component-text';
-import BpkCalendar from 'bpk-component-calendar';
+import BpkCalendar, { CALENDAR_SELECTION_TYPE } from 'bpk-component-calendar';
 import format from 'date-fns/format';
 
 import STYLES from './App.scss';
@@ -88,7 +88,7 @@ export default class App extends Component {
         <main className={c('App__main')}>
           <BpkCalendar
             id='calendar'
-            onDateSelect={handleDateSelect}
+            onDateSelect={this.handleDateSelect}
             formatMonth={formatMonth}
             formatDateFull={formatDateFull}
             daysOfWeek={daysOfWeek}
@@ -96,7 +96,7 @@ export default class App extends Component {
             changeMonthLabel="Change month"
             nextMonthLabel="Next month"
             previousMonthLabel="Previous month"
-            selectionConfiguration={selectionConfiguration}
+            selectionConfiguration={this.state.selectionConfiguration}
           />
           <BpkText tagName="p" className={c('App__text')}>
             To get started, edit <BpkCode>src/App.jsx</BpkCode> and save to reload.
